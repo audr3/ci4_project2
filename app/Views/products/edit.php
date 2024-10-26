@@ -43,7 +43,7 @@
 <section>
 
     <h1>Create</h1>
-    <form action="/products/update/<?= $product['id'] ?>" method="post">
+    <form action="/products/update/<?= $product['id'] ?>" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" value="<?= esc($product['name']) ?>" id="name">
@@ -59,6 +59,11 @@
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <input type="text" class="form-control" name="category" value="<?= esc($product['category']) ?>" id="category">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Upload</label>
+            <input type="file" class="form-control" name="product_image" id="product_image"  value="<?= esc($product['image']) ?>">
+            <img class="mt-3" src="<?= base_url('uploads/' . $product['image']) ?>" width="100">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

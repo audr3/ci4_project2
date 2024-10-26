@@ -11,6 +11,8 @@
     <!-- JS Datatables -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- HEADER: MENU + HEROE SECTION -->
@@ -50,6 +52,7 @@
             <th>Harga</th>
             <th>Deskripsi</th>
             <th>Category</th>
+            <th>Image</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -63,9 +66,10 @@
                     <td><?= esc($product['price']) ?></td>
                     <td><?= esc($product['description']) ?></td>
                     <td><?= esc($product['category']) ?></td>
+                    <td><img src="<?= base_url('uploads/' . $product['image']) ?>" width="100"></td>
                     <td>
                         <a href="/products/edit/<?= $product['id']; ?>" class="btn btn-primary">Edit</a>
-                        <a href="/products/delete/<?= $product['id']; ?>" class="btn btn-primary">Delete</a>
+                        <a href="/products/delete/<?= $product['id']; ?>" onclick="return confirm(message)" class="btn btn-primary">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

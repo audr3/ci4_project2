@@ -11,6 +11,9 @@
     <!-- JS Datatables -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <!-- HEADER: MENU + HEROE SECTION -->
@@ -42,7 +45,7 @@
 <section>
 
     <h1>Create</h1>
-    <form action="/products/store" method="post">
+    <form action="/products/store" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" id="name">
@@ -57,7 +60,11 @@
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
-            <input type="text" class="form-control" name="catego" id="category">
+            <input type="text" class="form-control" name="category" id="category">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Upload</label>
+            <input type="file" class="form-control" name="product_image" id="product_image" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
